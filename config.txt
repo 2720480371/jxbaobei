@@ -24,4 +24,13 @@
 "note_ch": "",
 # 金句英文
 "note_en": ""
+# -*- coding: utf-8 -*-
+import http.client, urllib
+conn = http.client.HTTPSConnection('api.tianapi.com')  #接口域名
+params = urllib.parse.urlencode({'key':'b8225a0fcf4c7afe0c0cb452938622fe'})
+headers = {'Content-type':'application/x-www-form-urlencoded'}
+conn.request('POST','/caihongpi/index',params,headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode('utf-8'))
 }
